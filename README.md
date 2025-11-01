@@ -1,2 +1,3 @@
 # AI-Threat-Feed-Dashboard
-Real-time threat visualization from SIEM data.
+
+Visualizes AI-detected anomalies exported from Splunk. Prototype for Bizecurity dashboards.
