@@ -1,18 +1,21 @@
-# stacey-calendar-assistant 📅🤖
+# AI-Threat-Feed-Dashboard 🛡️
 
-**A privacy-first personal AI assistant connecting Google Calendar to a local Ollama model — with persistent memory. Zero cloud dependency.**
+**Real-time visualization of AI-detected security anomalies from SIEM data.**
 
-Built to demonstrate that AI assistants don't need to send your data to the cloud. All inference runs locally on your machine using Ollama, with a clean tkinter GUI and Google Calendar integration for real scheduling tasks.
+Built as a prototype for Bizecurity LLC dashboards, this tool ingests threat data exported from Splunk and renders it as an interactive bar chart using Python and matplotlib.
 
 ---
 
 ## What It Does
 
-- 🗓️ **Reads your Google Calendar** — fetches upcoming events via the Google Calendar API
-- 🧠 **Local AI reasoning** — sends calendar context to a local Ollama model for natural language responses
-- 💾 **Persistent memory** — remembers past interactions across sessions
-- 🖥️ **Desktop GUI** — clean tkinter interface, no browser required
-- 🔒 **100% private** — no data ever leaves your machine
+Reads a CSV export of AI-detected anomalies from a SIEM (Security Information and Event Management) system and visualizes threat patterns by category — giving security analysts an at-a-glance view of active threat types.
+
+```python
+threats = pd.read_csv("sample_threats.csv")
+threats.plot(kind='bar')
+plt.title("AI-Detected Anomalies (Splunk Export)")
+plt.show()
+```
 
 ---
 
@@ -21,31 +24,28 @@ Built to demonstrate that AI assistants don't need to send your data to the clou
 | Tool | Purpose |
 |---|---|
 | Python | Core language |
-| Ollama | Local LLM inference (zero cloud) |
-| Google Calendar API | Real calendar data |
-| tkinter | Desktop GUI |
-| JSON | Persistent memory storage |
+| Pandas | CSV ingestion and data processing |
+| Matplotlib | Threat visualization |
+| Splunk (export) | SIEM data source |
 
 ---
 
-## Why Local AI Matters
+## Real-World Context
 
-Most AI assistants send your conversations — including your schedule, contacts, and habits — to remote servers. This assistant runs entirely on your local machine:
+This dashboard was built as an early prototype for Bizecurity — a cybersecurity app for small businesses. The concept: surface AI-detected threats in plain English visuals that non-technical business owners can actually understand.
 
-- Your calendar data stays on your device
-- Your conversations are never transmitted externally
-- Works offline after initial setup
-- No API keys, no subscriptions, no data harvesting
-
-This project directly inspired the **Ollama local AI mode** planned for [Bizecurity](https://github.com/sfreeman1sf/staceyfreeman) — giving small businesses AI-powered security advice with zero data leaving their network.
+It connects directly to the broader Bizecurity security stack:
+- Threat detection → visualized here
+- Network scanning → [Bizecurity App](https://github.com/sfreeman1sf/staceyfreeman)
+- Incident reporting → [Bizecurity App](https://github.com/sfreeman1sf/staceyfreeman)
 
 ---
 
 ## Related Projects
 
-- [Ollama-Projects](https://github.com/sfreeman1sf/Ollama-Projects) — More local LLM experiments
-- [staceyfreeman](https://github.com/sfreeman1sf/staceyfreeman) — Bizecurity app (Claude AI powered, Ollama roadmap)
 - [LLM-Jailbreak-Scanner](https://github.com/sfreeman1sf/LLM-Jailbreak-Scanner) — Prompt injection detection
+- [Zero-Trust-MFA-Simulator](https://github.com/sfreeman1sf/Zero-Trust-MFA-Simulator) — Access control enforcement
+- [staceyfreeman](https://github.com/sfreeman1sf/staceyfreeman) — Full Bizecurity app (Claude AI powered)
 
 ---
 
